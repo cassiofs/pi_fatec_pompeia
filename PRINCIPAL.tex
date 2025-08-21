@@ -1,0 +1,383 @@
+%%
+%% FatecTeX: A class for academic works (undergraduate thesis, monographs, and reports)
+%% Faculty of Technology of Pompéia (FATEC Pompéia), Brazil
+%%
+%% Version 1.0.0 2025/08/17
+%% Copyright (C) 2025 
+%% 
+%% Modified and adapted by Prof. Dr. Cássio Faria da Silva (FATEC Pompéia)
+%% <cassiofs@gmail.com>
+%% from the fatectex class originally developed for the University of Brasília (UnB)
+%% by Henrique C. Ferreira <hcferreira@unb.br>
+%%
+%% This class file may be distributed and/or modified under the conditions
+%% of the LaTeX Project Public License, either version 1.3 of this license,
+%% or (at your option) any later version.
+%% The latest version of this license is available at:
+%%
+%%    https://www.latex-project.org/lppl.txt
+%%
+%% and version 1.3 or later is part of all LaTeX distributions
+%% released 2005/12/01 or later.
+%%
+%% ------------------------------------------------------------------------
+%% This file is a template for use with FatecTeX
+%% To compile the document you should run: pdflatex, bibtex, pdflatex
+%% ------------------------------------------------------------------------
+
+
+\documentclass[
+    % -- Opção da classe memoir -- https://www.ctan.org/pkg/memoir
+    oneside, % Para imprimir somente na frente da folha
+    %twoside, % Para imprimir na frente e no verso da folha
+    % -- Opção da classe abntex2 -- https://www.ctan.org/pkg/abntex2
+    sumario=tradicional, % Remova esta opção para sumário padrão ABNT
+    % -- Selecione o idioma no qual o trabalho será escrito
+    idioma=brazil, % Para texto principal em português
+    %idioma=english, % Para texto principal em inglês  
+    % -- Selecione o estilo das referências bibliográficas
+    bib=alf, % Bibliografia nas normas da ABNT, estilo autor-data
+    %bib=num, % Bibliografia nas normas da ABNT, estilo numérico
+    % -- Selecione o estilo de numeração de figuras, tabelas, etc.
+    numb=chap, % Numeração por capítulo
+    %numb=abnt, % Numeração para o documento inteiro
+    ]{fatectex}
+
+% ---
+% Pacotes básicos (Adicione outros pacotes necessários para o seu trabalho)
+% ---
+\usepackage{lscape} % Pacote para rotacionar tabelas (e outros objetos)
+%\usepackage{pdflscape} % Pacote para rotacionar objetos e também a página do arquivo pdf
+\usepackage{afterpage} % Evita quebra de página quando inserir uma tabela (ou outro objeto) rotacionada
+% ---
+
+% ---
+% Compila a nomenclatura
+% ---
+\makenomenclature
+% ---
+
+% ---
+% Diretório das figuras
+\graphicspath{{fatectex-example/figuras}}
+% --- 
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Informações do trabalho
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Título
+% ---
+\titulo{Projeto Integrador de\\Sistemas Inteligentes II} % No idioma principal do texto
+% Insira \\ caso queira forçar quebras de linha no título
+% Não utilize caixa alta para o título do trabalho e nem das seções (com exceção de siglas)
+% ---
+\tituloestrangeiro{} % Escreva aqui título em português se o trabalho for escrito em inglês (caso contrário, deixe vazio)
+% ---
+
+% ---
+% Autores
+% ---
+%\autori[]{Peter}{Benjamin Parker} % \autori[]{Nome}{Sobrenome} 
+\autori[]{Leia Organa Skywalker \\ Peter Benjamin Parker \\ Daenerys Stormborn Targaryen}{}
+% No caso de nomes como Carlos de Souza, utilize \autori[]{Carlos de}{Souza} (e não \autori[]{Carlos}{de Souza})
+% ---
+\autorii[]{}{} % Deixe os argumentos vazios se não tiver segundo autor
+% ---
+
+% ---
+% Código Cutter para a ficha catalográfica
+% Gerado a partir da entrada <Sobrenome, Nome> (do primeiro autor) no site https://www.tabelacutter.com/
+% ---
+\numerocutter{} % Para não imprimir o código na ficha catalográfica, deixe o argumento vazio
+%\numerocutter{769} % Prencher o argumento do comando apenas com os números gerados
+% ---
+
+% ---
+% Orientadores
+% ---
+\orientador[Orientador]{Prof. Dr.}{Thomas Alva Edison}{FATEC - Pompéia} % Para alterar o gênero, basta trocar Orientador por Orientadora
+% ---
+\coorientador[Coorientador]{Prof. Dr.}{}{} % Deixe os argumentos para nome e sobrenome vazios se não tiver coorientador 
+% ---
+
+% ---
+% Informações do curso
+% ---
+\tipotrabalho{Projeto de Extensão} % Projeto de Extensão; Dissertação de Mestrado; Tese de Doutorado (em português, mesmo que o trabalho seja em inglês)
+% ---
+\tipocurso{Temática: Ações de ciência, tecnologia e inovação} % Nome do curso de graduação ou do programa de pós-graduação, em português
+% Ou ainda a temática: Temática: Ações de ciência, tecnologia e inovação
+%\tipocurso{Programa de Pós-Graduação em Engenharia Elétrica}
+% ---
+% Texto que aparece na folha de rosto e na folha de aprovação
+\preambulo{Projeto de Extensão Universitária submetido como requisito parcial para promoção na disciplina de Projeto Integrador de Sistemas Inteligentes II}
+%\preambulo{Trabalho de Conclusão de Curso submetido como requisito parcial para obtenção do grau de Engenheiro Eletricista.} 
+%\preambulo{Tese de Doutorado submetida ao Programa de Pós-Graduação em Engenharia Elétrica da Universidade de Brasília como parte dos requisitos necessários para obtenção do grau de Doutor.}
+% Consulte a secretaria/coordenação do curso para saber o que deve ser escrito no preâmbulo. Use português mesmo que o trabalho seja em inglês.
+% ---
+% Informação adicional para ser impressa na folha de rosto
+\publicacao{} % Deixe o argumento vazio caso não haja
+%\publicacao{Publicação PPGEE 201/23} % Também imprime as informações do trabalho no topo da página da ficha catalográfica
+% ---
+
+% ---
+% Instituição
+% ---
+\instituicao[Centro Paula Souza -- CEETPS]{FATEC Pompeia - Shunji Nishimura}{Tecnologia em Sistemas Inteligentes} % Caso queira incluir o departamento da unidade acadêmica
+% ---
+
+% ---
+% Local e data da defesa
+% ---
+\local{Pompéia}
+\dia{}
+\mes{}
+\ano{2025}
+% ---
+
+% ---
+% Membros da banca
+% ---
+\membrodabancai{Prof. Dr. Albert Einstein,\\ FATEC - Pompéia} % Membro 1 - Geralmente é o orientador
+\membrodabancaifuncao{Orientador} % Em português, mesmo que o trabalho seja em inglês.
+\membrodabancaii{Profa. Dra. Ada Lovelace,\\ FATEC - Pompéia} % Membro 2
+\membrodabancaiifuncao{Examinador interno}
+\membrodabancaiii{Prof. Dr. Alan Mathison Turing,\\ FATEC - Pompéia} % Membro 3
+\membrodabancaiiifuncao{Examinador interno}
+\membrodabancaiv{} % Deixe vazio se não tiver o quarto membro
+\membrodabancaivfuncao{Examinador externo}
+\membrodabancav{} % Deixe vazio se não tiver o quinto membro
+\membrodabancavfuncao{Examinador externo}
+% Comprimento da linha da assinatura (ajuste conforme necessidade)
+\signlinewidth{9cm}
+% ---
+
+% ---
+% Resumo em português
+% ---
+\begin{Resumo}
+Até 250 palavras: problema, ODS, método, solução, principais resultados/entregas.
+
+Palavras-chave: 3–5 termos.
+
+Exemplo didático
+Resumo: “Este projeto aborda a automatização da triagem de resíduos recicláveis (ODS 12) para a Cooperativa Verde. Utilizou-se uma arquitetura de dados com coleta via app móvel, armazenamento em banco relacional e modelo de visão computacional (Random Forest + SIFT). A solução incrementou em 18\% a precisão da triagem piloto. Entregas: dataset, API de classificação, dashboard e manual.”
+\end{Resumo}
+% ---
+
+% ---
+% Resumo em inglês
+% ---
+\begin{Abstract}
+Aqui a versão em inglês...
+\end{Abstract}
+% ---
+
+% ---
+% Palavras-chave (defina no mínimo 3 e no máximo 5)
+% ---
+\pchavei{palavra-chave 1}
+\kwordi{keyword 1}
+\pchaveii{palavra-chave 2}
+\kwordii{keyword 2}
+\pchaveiii{palavra-chave 3}
+\kwordiii{keyword 3}
+\pchaveiv{palavra-chave 4} % Deixe vazio se não tiver
+\kwordiv{keyword 4} % Deixe vazio se não tiver
+\pchavev{} % Deixe vazio se não tiver
+\kwordv{} % Deixe vazio se não tiver
+% ---
+
+% ---
+% Agradecimentos
+% ---
+% Idioma usado nos agradecimentos (pode ser em português, mesmo que o trabalho seja em inglês)
+\idiomaagradecimentos{brazil}
+%\idiomaagradecimentos{english}
+
+\begin{otherlanguage*}{\acklang}
+
+% Primeiro autor
+% Quando se tem até dois autores, é possível criar uma seção para cada um
+\begin{AgradecimentosAutorI}
+Nesta seção, o autor deve registrar seus agradecimentos formais a todas as pessoas e instituições que contribuíram, direta ou indiretamente, para a realização do trabalho acadêmico. É comum mencionar orientadores, professores, colegas, familiares e agências de fomento, destacando o apoio recebido ao longo da pesquisa e do processo de formação.
+
+O texto deve ser redigido de maneira clara, objetiva e em tom respeitoso, evitando exageros ou informalidades. Não existe um tamanho fixo, mas recomenda-se que seja breve e conciso, ocupando normalmente de um a três parágrafos. Este espaço é opcional, porém representa uma oportunidade de valorizar a colaboração daqueles que auxiliaram na trajetória acadêmica do autor.
+\end{AgradecimentosAutorI}
+
+% Segundo autor
+\begin{AgradecimentosAutorII}
+Agradecimentos do segundo autor.
+\end{AgradecimentosAutorII}
+
+\end{otherlanguage*}
+% ---
+
+% ---
+% Dedicatória
+% ---
+
+% Primeiro autor
+\begin{DedicatoriaAutorI}
+Este trabalho é dedicado às crianças adultas que,\\
+quando pequenas, sonharam em se tornar cientistas.
+\end{DedicatoriaAutorI}
+
+% Segundo autor
+\begin{DedicatoriaAutorII}
+Dedicatória do segundo autor.
+\end{DedicatoriaAutorII}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{Epigrafe}
+\vspace*{\fill}
+\begin{flushright}
+    \textit{``If you find that you're spending almost all your time on theory,\\
+    start turning some attention to practical things;\\
+    it will improve your theories.\\
+    If you find that you're spending almost all your time on practice,\\
+    start turning some attention to theoretical things;\\
+    it will improve your practice.''\\
+    (Donald Knuth)}
+\end{flushright}
+\end{Epigrafe}
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Início do documento
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\begin{document}
+
+% ------------------------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ------------------------------------------------------------------------
+\pretextual
+% ------------------------------------------------------------------------
+
+% Insere capa e contracapa
+\imprimircapa
+
+% Insere folha de rosto
+\imprimirfolhaderosto*
+
+% Insere ficha bibliográfica
+%\fichacatalografica
+
+% Insere folha de aprovação
+%\imprimirfolhadeaprovacao
+
+% Insere dedicatória (elemento opcional)
+%\imprimirdedicatoria
+
+% Insere agradecimentos (elemento opcional)
+%\imprimiragradecimentos
+
+% Insere epígrafe (elemento opcional)
+%\imprimirepigrafe
+
+% Insere resumos
+\imprimirresumos
+
+% Insere lista de figuras
+%\imprimirlistadefiguras
+
+% Insere lista de quadros
+%\imprimirlistadequadros
+
+% Insere lista de tabelas
+%\imprimirlistadetabelas
+
+% Insere lista de algoritmos
+%\imprimirlistadealgoritmos
+
+% Insere lista de códigos
+%\imprimirlistadecodigos
+
+% Insere a lista de abreviaturas e siglas e a lista de símbolos
+\imprimirlistadesiglasesimbolos
+
+% Insere o sumário
+\imprimirsumario
+
+% ------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ------------------------------------------------------------------------
+\textualsimples % Cabeçalho com número da página e linha horizontal
+%\textual % Cabeçalho com número da página, título do capítulo/seção e linha horizontal
+% ------------------------------------------------------------------------
+
+% Imprime uma página para agrupar um conjunto de capítulos (parte)
+%\part{Nome da parte}
+
+% Capítulo de introdução
+\include{fatectex-example/_introducao}
+
+% Capítulo de objetivos
+\include{fatectex-example/_objetivos}
+
+% Capítulo com a metodologia
+\include{fatectex-example/_metodologia}
+
+% Capítulo com as etapas de execução
+\include{fatectex-example/_etapas}
+
+% Capítulo de entregas
+\include{fatectex-example/_entregas}
+
+% Capítulo de conclusões
+\include{fatectex-example/_conclusao}
+
+% ------------------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ------------------------------------------------------------------------
+\postextual
+% ------------------------------------------------------------------------
+
+% ---
+% Referências bibliográficas
+% ---
+% Arquivo com as referências bibliográficas
+\bibhang{2.2em} % Recuo da margem esquerda da lista de referências
+\bibliography{fatectex-example/referencias} % O estilo de citação é selecionado automaticamente
+% ---
+
+% ---
+% Apêndices
+% ---
+%\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+%\include{fatectex-example/apendice-a}
+
+%\include{fatectex-example/apendice-b}
+
+%\include{fatectex-example/apendice-c}
+
+%\end{apendicesenv}
+% ---
+
+% ---
+% Anexos
+% ---
+%\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+%\include{fatectex-example/anexo-a}
+
+%\end{anexosenv}
+% ---
+
+\end{document}
